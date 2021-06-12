@@ -1,5 +1,5 @@
 {
-    "name": "my-game",
+    "name": "rpg-aecs",
     "version": "3.0.0-alpha.10",
     "description": "",
     "main": "dist/server.js",

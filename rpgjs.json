@@ -1,8 +1,8 @@
 {
-    "name": "My Game",
-    "short_name": "Game",
+    "name": "L'Attaque de l'Énigmatique et Carnivore Sphinge",
+    "short_name": "AECS",
     "orientation": "landscape",
-    "description": "Beautiful Game",
+    "description": "Une sphinge a envahi le village et dévore ses habitants ! Le seul moyen de la vaincre est de résoudre ses énigmes... Pourrez-vous relever le défi ?",
     "background_color": "#ffffff",
     "icons": [
         {
