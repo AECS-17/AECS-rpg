@@ -1,5 +1,7 @@
 # L'Attaque de l'Énigmatique et Carnivore Sphinge
 
+![Screenshot](/screenshot.jpg)
+
 ## Get started
 
 1. Follow the instructions in src/pipoya/README.md to download the assets from
