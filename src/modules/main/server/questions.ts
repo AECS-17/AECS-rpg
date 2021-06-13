@@ -329,6 +329,34 @@ let questions = [
                 }
             },
         ],
+        "physique": [
+            () => {
+                return {
+                    statement: `Combien de temps met la Terre pour effectuer un tour complet autour du Soleil ?`,
+                    correct: `365 jours`,
+                    wrong: [`24 heures`,
+                            `1 mois`,
+                            `2 ans`],
+                    course: ["La Terre effectue un tour complet autour du Soleil en un an, soit environ 365 jours."],
+                }
+            },
+            mapQuestion(
+                {
+                    "1ère" : "Mercure",
+                    "2ème": "Vénus",
+                    "3ème": "Terre",
+                    "4ème": "Mars",
+                    "5ème": "Jupiter",
+                    "6ème": "Saturne",
+                    "7ème": "Uranus",
+                    "8ème": "Neptune",
+              },
+                "Quelle est la %KEY planète la plus proche du soleil ?",
+                "Si on classe les planètes du système solaire de la plus proche à la plus éloignée, quelle est la position de %VALUE ?",
+                "Les 8 planètes du système solaire de la plus proche à la plus éloignée",
+                "%KEY : '%VALUE'",
+            ),
+        ],
     },
     { // 6e
         "français": [
@@ -396,6 +424,44 @@ let questions = [
                 }
             },
         ],
+        "physique": [
+            () => {
+                return {
+                    statement: `L'alternance des saisons est expliquée par :`,
+                    correct: `L'inclinaison de l'axe des pôles et la révolution de la Terre autour du Soleil.`,
+                    wrong: [`La trajectoire elliptique de la Terre autour du soleil et la distance qui les séparent.`,
+                            `La rotation de la Terre sur elle-même.`,
+                            `La rélection de la lumière solaire par la Lune.`,
+                            `Les variations de température du Soleil au cours du temps.`],
+                    course: ["Les saisons sont dues à l'inclinaison de l'axe des pôles, combinée à la révolution de la Terre autour du Soleil",
+                             "causant une variation d'ensoleillement induite par l'orientation changeante vis-à-vis du rayonnement solaire"],
+                }
+            },
+            definitionQuestion({
+                "masse": "quantité de matière d'un corps exprimée en kilogrammes",
+                "volume" : "espace occupé par un corps exprimé en mètre cube",
+                "litre": "unité de volume correspondant à un 1 décimètre cube",
+                "poids": " force de la pesanteur exprimée en newton",
+            }),
+            definitionQuestion({
+                "solidification": "passage de l'état liquide à solide",
+                "fusion" : "passage de l'état solide à liquide",
+                "vaporisation" : "passage de l'état liquide à gaz",
+                "liquéfaction" : "passage de l'état gaz à liquide",
+                "condensation" : "passage de l'état gaz à solide",
+                "sublimation" : "passage de l'état solide à gaz",
+            }),
+            () => {
+                let v = getRandomArbitrary(50, 120);
+                return {
+                    statement: `En 2 heures et demi, quelle distance parcourt une voiture roulant à ${v} km/h ?`,
+                    correct: `${2.5 * v} km`,
+                    wrong: [`${(2*getRandomArbitrary(3, 5) + 1) * .5 * v} km`,
+                            `${getRandomArbitrary(1, 4) * v} km`,
+                            `${(2*getRandomArbitrary(0, 2) + 1) * .5 * v} km`],
+                }
+            },
+        ],
         "svt": [
             definitionQuestion({
                 "membrane": "lame mince séparant l'intérieur d'une cellule de l'environnement extérieur",
@@ -420,6 +486,27 @@ let questions = [
                 "Quelques concepts de dissolution dans l'eau",
                 "%KEY est appelée %VALUE",
             ),
+            mapQuestion(
+                {
+                    "Solution quelconque": "0 ≤ pH ≤ 14",
+                    "Solution acide": "0 ≤ pH < 7",
+                    "Solution basique": "7 < pH ≤ 14",
+                    "Solution neutre": "pH = 0",
+                },
+                `A quel pH correspond une %KEY`,
+                `À quel type de solution correspond %VALUE`,
+                `Définition du pH d'une solution...`,
+                `%KEY : %VALUE`,
+            ),
+            definitionQuestion({
+                "corps pur": "substance composée d'une seule espèce chimique",
+                "mélange" : "substance composée de plusieurs espèces chimiques",
+                "mélange homogène": "mélange pour lequel on ne distingue pas les constituants",
+                "mélange hétérogène": "mélange pour lequel on distingue les constituants",
+                "liquides miscibles / liquide et solide solubles": "liquides qui donnent un mélange homogènes",
+                "liquides non-miscibles / liquide et solide insolubles": "qui donnent un mélange hétérogène",
+                "solubilité": "masse maximale de solide qu'on peut dissoudre dans un litre de solvant",
+            }),
         ],
         "français": [
             () => {
@@ -550,6 +637,22 @@ let questions = [
                 "Comment schématiser les composants d'un circuit électrique",
                 "on représente %KEY par %VALUE",
             ),
+            () => {
+                let v1 = getRandomArbitrary(1, 10) * 10**(getRandomArbitrary(6, 8));
+                let v2 = v1 * 0.001 * 0.001;
+                return {
+                    statement: `À quoi est égale ${v1} millilitres ?`,
+                    correct: `${v2} mètres cube.`,
+                    wrong: [`${v2 * (Math.random() < .5 ? 0.1 : 10)} mètres cube`,
+                            `${v2 * (Math.random() < .5 ? 0.01 : 100)} mètres cube`,
+                            `${v1} décimètres cube`],
+                    course: ["1 décimètre est égal à 0.1 mètre.",
+                             "1 décimètre cube est égal à 0.001 mètre cube.",
+                             "1 décimètre cube est égal à 1 litre.",
+                             "1 millilitre est égal à 0.001 litre.",
+                            ],
+                }
+            },
         ],
         "svt": [
             definitionQuestion({
@@ -590,6 +693,18 @@ let questions = [
                 "%VALUE est la formule de  la molécule... ",
                 "Quelques formules chimiques",
                 "%VALUE est la formule de la molécule %KEY",
+            ),
+            mapQuestion(
+                {
+                    "diazote": "environ 78%",
+                    "dioxygène": "environ 21%",
+                    "dioxyde de carbone": "environ 0,04%",
+                    "gaz rares (argon, néon, ...)": "moins de 1%",
+                },
+                "Quelle est le pourcentage de %KEY dans l'air ?",
+                "Quel gaz de l'air correspond au pourcentage '%VALUE' ?",
+                "Composition de l'air",
+                "%KEY: %VALUE",
             ),
         ],
         "français": [
@@ -702,6 +817,21 @@ let questions = [
                              `On obtien ${A/d}/${B/d} qui est une fraction irréductible.`]
                 }
             },
+            () => {
+                let AM = getRandomArbitrary(2, 5);
+                let AB = getRandomArbitrary(AM + 1, AM + 5);
+                let AC = getRandomArbitrary(AB + 1, AB + 5);
+
+                let AN = Math.round(100 * AC * AM / AB);
+                let shift = new Array();
+                for (let i = 1; i <= 5; i++) { shift.push(i); shift.push(-i); }
+                let indices = getRandomIndices(shift.length);
+                return {
+                    statement: `Soit ABC un triangle, M un point de [AB] et N un point de [AC]. Si (MN) est parallèle à (BC), AB=${AB}cm, AC=${AC}cm et AM=${AM}cm quel est la meilleure valeur approchée de AN ?`,
+                    correct: `${AN/100}`,
+                    wrong: [`${(AN+shift[indices.pop()])/100}`, `${(AN+shift[indices.pop()])/100}`, `${(AN+shift[indices.pop()])/100}`],
+                };
+            }
         ],
         "physique": [
             () => {
@@ -717,6 +847,18 @@ let questions = [
                              "et I l'intensité en ampère."],
                 }
             },
+            mapQuestion(
+                {
+                    "vitesse de la lumière dans le vide": "300 000 km/s",
+                    "vitesse du son dans l'air": "340 m/s",
+                    "vitesse du son dans l'eau": "1 500 m/s",
+                    "vitesse de la lumière dans l'eau": "225 000 km/s",
+                },
+                "Quelle est la %KEY ?",
+                "A quoi correspond %VALUE ?",
+                "Quelques vitesses du son et de la lumière",
+                "La %KEY est de %VALUE",
+            ),
         ],
         "svt": [
             definitionQuestion({
@@ -755,6 +897,15 @@ let questions = [
                 "Quelques formules de ions",
                 "%KEY est la formule de l'ion %VALUE",
             ),
+            () => {
+                return {
+                    statement: `Laquelle de ces formules correspond à une réaction acido-basique ?`,
+                    correct: `2H+ + Fe → H2 + Fe2+`,
+                    wrong: [`3 Fe + 2 O2 → Fe3 O4`,
+                            `H+ + Fe → H2 + Fe2+`,
+                            `3H+ + Fe → H2 + Fe3+`],
+                }
+            },
         ],
         "français": [
             mapQuestion(
@@ -875,6 +1026,17 @@ let questions = [
                     wrong: [`${m*(v**2)}J`, `${m*v/2}J`, `${m*v}J`],
                     course: ["Un objet de masse m et animé d’une vitesse v possède une énergie de mouvement",
                              "Elle est appelée énergie cinétique et égale à Ec = ½mv²"],
+                }
+            },
+            () => {
+                let U = getRandomArbitrary(2, 10);
+                let I = getRandomArbitrary(2, 10);
+                return {
+                    statement: `Quelle est la puissance d'une source électrique de tension ${U} V et d'intensité ${I} ampères ?`,
+                    correct: `${I*U} W`,
+                    wrong: [`${I+U} W`, `${I*U/2}W`, `${Math.max(I, U)}W`],
+                    course: ["La puissance d'une source électrique est donnée par la formule P = U I",
+                            "où U est la tension et I l'intensité"],
                 }
             },
         ],
