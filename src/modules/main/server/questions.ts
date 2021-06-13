@@ -70,7 +70,7 @@ function mapQuestion(map,
             let statement = question_key_to_value.replace(/%KEY/g, `${keys[i]}`);
             let correct = map[keys[i]];
             let wrong = new Array();
-            for (let j = 1; j < 4; j++)
+            for (let j = 1; j < Math.min(4, keys.length); j++)
                 wrong.push(map[keys[indices.pop()]]);
             return {
                 statement: statement,
@@ -84,7 +84,7 @@ function mapQuestion(map,
                 replace(/%VALUE/g, `${map[keys[i]]}`);
             let correct = keys[i];
             let wrong = new Array();
-            for (let j = 1; j < 4; j++)
+            for (let j = 1; j < Math.min(4, keys.length); j++)
                 wrong.push(keys[indices.pop()]);
             return {
                 statement: statement,
@@ -171,6 +171,11 @@ let questions = [
                 "Quelques morales de fables de La Fontaine...",
                 "%KEY : '%VALUE'",
             ),
+            definitionQuestion({
+                "bois": "substance dure et compacte des arbres",
+                "boit": "conjugaison du verbe « boire » à la troisième personne du singulier, au présent de l’indicatif.",
+                "boa": "serpent vivant en Amérique du sud.",
+            }),
         ],
         "géographie": [
             mapQuestion(
@@ -386,6 +391,17 @@ let questions = [
                 "Quelques citations de pièce de Molière...",
                 "%KEY : '%VALUE'",
             ),
+            definitionQuestion({
+                "porc": "cochon",
+                "pore": "ouverture imperceptible dans la peau",
+                "port": "endroit où les bateaux abordent",
+            }),
+            definitionQuestion({
+                "cent": "Numéral cardinal qui contient 10 fois 10.",
+                "sang": "Liquide rouge qui circule dans les artères et les veines des hommes et animaux y entretenant la vie.",
+                "sans": "Préposition marquant l’absence, le manque, l’exclusion d’une personne ou d’une chose.",
+                "sent": "conjugaison du verbe « sentir » à la troisième personne du singulier, au présent de l’indicatif.",
+            }),
         ],
         "histoire": [
             dateQuestion({
@@ -519,6 +535,22 @@ let questions = [
                     course: ["Don Quichotte est roman écrit par Miguel de Cervantes publié au début du XVIIe siècle, parodie des mœurs médiévales et de l'idéal chevaleresque."],
                 }
             },
+            definitionQuestion({
+                "au": " Contraction de « à le ». ",
+                "eau": "Liquide consommé en tant que boisson.",
+                "haut": "qui a une certaine dimension dans le sens vertical.",
+                "os": "Organe dur et solide qui constitue la charpente des hommes et des vertébrés.",
+            }),
+            definitionQuestion({
+                "compte": "Etat ou autre écrit comprenant l’énumération, le calcul et autres supputations de ce qui a été reçu et dépensé.",
+                "comte": "Titre de noblesse qui vient au-dessous de celui du marquis.",
+                "conte": "court récit d’aventures imaginaires, soit vraisemblable, soit merveilleux.",
+            }),
+            definitionQuestion({
+                "bal": "Assemblée où l’on danse.",
+                "bâle": "Ville de Suisse.",
+                "balle": "Petite sphère qui rebondit, utilisée dans certains jeux.",
+            }),
         ],
         "histoire": [
             dateQuestion({
@@ -737,6 +769,23 @@ let questions = [
                 "Quelques citations des fleurs du mal de Charles Baudelaire...",
                 "%KEY : « %VALUE »",
             ),
+            definitionQuestion({
+                "shah": "Titre que les Européens donnent au souverain de la Perse.",
+                "chas": "Trou d’une aiguille par lequel on passe le fil.",
+                "chat": "Animal domestique carnassier de la famille des félins.",
+            }),
+            definitionQuestion({
+                "père": "Celui qui a un ou plusieurs enfants.",
+                "paire": "Deux choses de même espèce, qui vont ou nécessairement ou ordinairement ensemble.",
+                "pair": "Qui est égal, semblable, pareil.",
+                "pers": "D'une couleur entre le vert et le bleu.",
+                "perds": "conjugaison du verbe « perdre » à la deuxième personne du singulier, au présent de l’indicatif.",
+            }),
+            definitionQuestion({
+                "boue": "Fange des rues et des chemins.",
+                "bous": "conjugaison du verbe « bouillir » à la deuxième personne du singulier, au présent de l’indicatif.",
+                "bout": "Extrémité d’un corps, d’un espace.",
+            }),
         ],
         "histoire": [
             dateQuestion({
@@ -920,6 +969,20 @@ let questions = [
                 "Quelques citations d'auteurs du XXe siècle :",
                 "%KEY : « %VALUE »",
             ),
+            definitionQuestion({
+                "vair": "Désignait une fourrure blanche et grise.",
+                "ver": "Animal rampant, dont le corps est long et sans articulation.",
+                "verre": "Récipient servant à recueillir une boisson et à la boire.",
+                "vert": "Couleur qui est celle de l’herbe.",
+                "vers": "Dans un poème désigne une ligne, qui est rythmée par le nombre de syllabe et/ou la rime.",
+            }),
+            definitionQuestion({
+                "tan": " Ecorce du chêne ou d’autres arbres",
+                "tant": "Tellement, à tel point.",
+                "taon": "Insecte ressemblant à une grosse mouche.",
+                "temps": "Moments où se passe un mouvement, une action.",
+                "tend": "conjugaison du verbe « tendre » à la troisième personne du singulier, au présent de l’indicatif.",
+            }),
         ],
         "histoire": [
             dateQuestion({
