@@ -1022,7 +1022,7 @@ let questions = [
                 for (let i = 1; i <= 5; i++) { shift.push(i); shift.push(-i); }
                 let indices = getRandomIndices(shift.length);
                 return {
-                    statement: `Quelle est la solution de l'équation ${A} * x + ${B} = ${C} * x + ${D} ?`,
+                    statement: `Quelle est la solution de l'équation ${A}x + ${B} = ${C}x + ${D} ?`,
                     correct: `${x}`,
                     wrong: [`${x+shift[indices.pop()]}`, `${x+shift[indices.pop()]}`, `${x+shift[indices.pop()]}`],
                 }
