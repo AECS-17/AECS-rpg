@@ -12,12 +12,28 @@ export const player: RpgPlayerHooks = {
           'female1_2',
           'female1_3',
           'female1_4',
+          'female3_1',
+          'female3_2',
+          'female3_3',
+          'female3_4',
+          'female11_1',
+          'female11_2',
+          'female11_3',
+          'female11_4',
           'male1_1',
           'male1_2',
           'male1_3',
           'male1_4',
+          'male2_1',
+          'male2_2',
+          'male2_3',
+          'male2_4',
+          'male3_1',
+          'male3_2',
+          'male3_3',
+          'male3_4',
         ];
-        const characterIndex = (new Date()).getSeconds() % characters.length;
+        const characterIndex = (new Date()).getTime() % characters.length;
         player.setGraphic(characters[characterIndex]);
         player.name = `ANONYME${(new Date()).getTime() % 10000}`;
         player.level = 5;
