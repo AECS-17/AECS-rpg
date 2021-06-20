@@ -153,7 +153,7 @@ function mistakeQuestions(text_with_mistakes: string, mistake_count: number) {
                 wrong.push(answer(c));
         }
         return {
-            statement: `Combien de fautes comporte le texte suivant : « ${text_with_mistakes} »`,
+            statement: `Combien d'erreurs comporte le texte suivant : « ${text_with_mistakes} »`,
             correct: correct,
             wrong: wrong,
         }
@@ -1249,18 +1249,38 @@ let questions = [
 // to a question level from 0 to 4.
 function pickRandomQuestion(maxLevel: number)
 {
+    // Pick a random level.
     let questionLevel = getRandomArbitrary(0, maxLevel);
     let questionsForThisLevel = questions[questionLevel];
-    let fields = Object.keys(questionsForThisLevel);
-    let questionsForThisLevelAndField =
-        questionsForThisLevel[getRandomFromArray(fields)];
-    let question = getRandomFromArray(questionsForThisLevelAndField)();
+
+    // Pick a random question for this level.
+    let questionCountForThisLevel = 0;
+    for (let field in questionsForThisLevel)
+        questionCountForThisLevel += questionsForThisLevel[field].length;
+    let questionIndex = getRandomArbitrary(0, questionCountForThisLevel);
+    let question;
+    for (let field in questionsForThisLevel) {
+        if (questionIndex < questionsForThisLevel[field].length) {
+            question = questionsForThisLevel[field][questionIndex]();
+            break;
+        } else {
+            questionIndex -= questionsForThisLevel[field].length;
+        }
+    }
+
+    // Build options.
     let options = new Array();
+    options.push({ value: true, text: question.correct});
     question.wrong.forEach((text) => {
       options.push({ value: false, text: text });
     });
-    options.splice(getRandomArbitrary(0, options.length + 2), 0,
-                   { value: true, text: question.correct});
+
+    // Shuffle options.
+    for (let i = options.length - 1; i > 0; i--) {
+        const j = getRandomArbitrary(0, i + 1);
+        [options[i], options[j]] = [options[j], options[i]];
+    }
+
     return {
        statement: question.statement,
        options: options,
