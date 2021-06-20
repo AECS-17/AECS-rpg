@@ -180,6 +180,18 @@ function mistakeQuestions(text_with_mistakes: string, mistake_count: number) {
 //     - course: An array of strings which teaches how to solve the question.
 let questions = [
     { // Primaire
+        "chimie": [
+            () => {
+                return {
+                    statement: `Si on verse de l'huile dans de l'eau...`,
+                    correct: `L'huile va flotter et former une couche au dessus de l'eau.`,
+                    wrong: [`L'huile va couler et former une couche en dessous de l'eau.`,
+                            `L'eau et l'huile vont se mélanger de façon homogène.`,
+                            `De petite bulles d'huile vont se former à l'intérieur de l'eau.`],
+                    course: ["L'huile flotte au-dessus de l'eau car elle est moins dense."],
+                }
+            },
+        ],
         "français": [
             mapQuestion(
                 {
@@ -392,8 +404,31 @@ let questions = [
                 "%KEY : '%VALUE'",
             ),
         ],
+        "svt": [
+            definitionQuestion({
+                "cerveau": "Organe chargé de gérer l'ensemble des fonctions corporelles par l'envoi de signaux nerveux.",
+                "coeur" : "Organe chargé du pompage du sang dans tout le corps.",
+                "poumon": "Organe chargé d'obtenir de l'oxygène de l'environnement tout en éliminant le dioxyde de carbone.",
+                "estomac": "Organe chargé de la digestion des aliments.",
+            }),
+        ],
     },
     { // 6e
+        "chimie": [
+            mapQuestion(
+                {
+                    "Une flamme" : "Hautement inflammable.",
+                    "Une croix": "Nocif.",
+                    "Une tête de mort": "Toxique.",
+                    "Tube à essai dont les gouttes tombent en faisant des trous dans une main et un rectangle.": "Corrosif.",
+                    "Arbre et poisson morts": "Dangereux pour l'environnement.",
+                },
+                "Sur l'étiquette d'une substance chimique, que signifie le pictogramme '%KEY' ?",
+                "Comment est représenté l'avertissement '%VALUE' sur l'étiquette d'une substance chimique ?",
+                "Quelques pictogrammes de danger des substances chimiques...",
+                "%KEY : '%VALUE'",
+            ),
+        ],
         "français": [
             () => {
                 let v1 = getRandomArbitrary(100, 2000);
@@ -677,6 +712,10 @@ let questions = [
                 "El espera su amigo por ir a la playa con ella.",
                 4, // Él, A su, amigA, para.
             ),
+            mistakeQuestions(
+                "He has become a new person since he left her.",
+                0,
+            ),
         ],
         "maths": [
             () => {
@@ -856,6 +895,20 @@ let questions = [
                 "en 1900" : "l'exposition universelle de Paris",
                 "en 1905" : "la loi de séparation des églises et de l'État",
             }),
+        ],
+        "langues": [
+            mistakeQuestions(
+                "I have visited Paris last year. There was many tourists.",
+                2, // I visited. There were.
+            ),
+            mistakeQuestions(
+                "These two mans are the most nice people I have ever meeted.",
+                3, // men, nicest, met
+            ),
+            mistakeQuestions(
+                "She do not seem very young. How old is she?",
+                1, // does
+            ),
         ],
         "maths": [
             () => {
@@ -1058,6 +1111,22 @@ let questions = [
                 "en 1992" : "le traité de Maastricht",
                 "en 2002" : "la mise en place de l'euro, monnaie européene",
             }),
+        ],
+        "langues": [
+            translationQuestion({
+                "quel": "which",
+                "sorcière": "witch",
+                "souhait": "wish",
+                "avec": "with",
+            }, "anglais"),
+            mistakeQuestions(
+                "No hagas como si no lo sabías.",
+                1, // no lo supieras
+            ),
+            mistakeQuestions(
+                "I heared that there was only two flower in their garden.",
+                3, // heard, were, flowers
+            ),
         ],
         "maths": [
             () => {

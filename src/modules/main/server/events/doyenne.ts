@@ -19,7 +19,7 @@ export class DoyenneEvent extends RpgEvent {
         let name = "";
         const max_length = 16;
         while (name.length < max_length) {
-            let message = "Quel est nom nom ?";
+            let message = "Quel est ton nom ?";
             let subsets = new Array(
                 "ABCDEF",
                 "GHIJKL",
