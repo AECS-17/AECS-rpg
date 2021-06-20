@@ -49,7 +49,7 @@ function mapQuestion(map,
                      question_value_to_key: string,
                      course_intro?,
                      course_key_to_value?) {
-    return function() {
+    return () => {
         let keys = new Array();
         for (let key in map)
             keys.push(key);
@@ -138,6 +138,28 @@ function dateQuestion(map) {
     );
 }
 
+// Create a random question asking for the number of mistakes.
+// - text_with_mistakes: a text with mistakes.
+// - mistake_count: the number of mistakes in the text.
+function mistakeQuestions(text_with_mistakes: string, mistake_count: number) {
+    function answer(c: number) { return `${c} erreur${c >= 2 ? 's' : ''}`; }
+    let answer_count = 4;
+    let correct = answer(mistake_count);
+    return () => {
+        let mistake_count_min = Math.max(0, getRandomArbitrary(mistake_count - answer_count, mistake_count + 1));
+        let wrong = new Array();
+        for (let c = mistake_count_min; c < mistake_count_min + answer_count; c++) {
+            if (c != mistake_count)
+                wrong.push(answer(c));
+        }
+        return {
+            statement: `Combien de fautes comporte le texte suivant : « ${text_with_mistakes} »`,
+            correct: correct,
+            wrong: wrong,
+        }
+    }
+}
+
 // This is an array of questions. Items correspond to increasing levels
 // (Primaire, 6e, 5e, 4e and 3e) and is an object with the following structure:
 //   - key: The field of the course. The values known by the game are:
@@ -176,6 +198,14 @@ let questions = [
                 "boit": "conjugaison du verbe « boire » à la troisième personne du singulier, au présent de l’indicatif.",
                 "boa": "serpent vivant en Amérique du sud.",
             }),
+            mistakeQuestions(
+                "J'ai manger deux délicieuse paumes aujourd'hui.",
+                3, // mangÉ, délicieuseS, POMMES.
+            ),
+            mistakeQuestions(
+                "Danses avec ton ami avant qu'elle ne parte.",
+                3, // Danse, amiE.
+            ),
         ],
         "géographie": [
             mapQuestion(
@@ -417,6 +447,16 @@ let questions = [
                 "du IIème siècle av. J.-C. au IIème siècle ap. J.-C.": "la Chine des Han",
             }),
         ],
+        "langues": [
+            mistakeQuestions(
+                "He go to cinema with her girlfriend.",
+                3, // He goES, to THE cinema, HIS.
+            ),
+            mistakeQuestions(
+                "She teached me music two year ago.",
+                2, // taught, yearS.
+            ),
+        ],
         "maths": [
             () => {
                 let n = getRandomArbitrary(1000, 2000);
@@ -629,6 +669,14 @@ let questions = [
                 "table": "mesa",
                 "verre": "vaso",
             }, "espagnol"),
+            mistakeQuestions(
+                "Me gusta mucho las mansanas rojas.",
+                2, // Me gustaN, manZanas
+            ),
+            mistakeQuestions(
+                "El espera su amigo por ir a la playa con ella.",
+                4, // Él, A su, amigA, para.
+            ),
         ],
         "maths": [
             () => {
