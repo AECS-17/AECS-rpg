@@ -28,5 +28,17 @@ console.log("# Test de l'API\n")
 
 let question = pickRandomQuestion(5);
 console.log("pickRandomQuestion(5):\n", question);
-let course = pickRandomCourse(5, 'maths');
-console.log(`pickRandomCourse(5, 'maths'):\n ${course}\n`);
+
+[
+    "chimie",
+    "français",
+    "géographie",
+    "histoire",
+    "langues",
+    "maths",
+    "physique",
+    "svt",
+].forEach(field => {
+    let course = pickRandomCourse(5, field);
+    console.log(`pickRandomCourse(5, '${field}'):\n ${course}\n`);
+});

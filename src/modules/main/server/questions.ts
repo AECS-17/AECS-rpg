@@ -1384,14 +1384,19 @@ function pickRandomCourse(maxLevel: number, field: string) {
     }
 
     if (question_count > 0) {
-        let chosen_question = getRandomArbitrary(0, question_count);
-        for (let level = 0; level < maxLevel; level++) {
-            if (questions[level].hasOwnProperty(field)) {
-                let questionsForThisLevel = questions[level][field];
-                if (chosen_question < questionsForThisLevel.length) {
-                    return questionsForThisLevel[chosen_question]().course || null;
-                } else {
-                    chosen_question -= questionsForThisLevel.length;
+        const attempt_to_find_course = 5;
+        for (let j = 0; j < attempt_to_find_course; j++) {
+            let chosen_question = getRandomArbitrary(0, question_count);
+            for (let level = 0; level < maxLevel; level++) {
+                if (questions[level].hasOwnProperty(field)) {
+                    let questionsForThisLevel = questions[level][field];
+                    if (chosen_question < questionsForThisLevel.length) {
+                        let course = questionsForThisLevel[chosen_question]().course;
+                        if (course)
+                            return course;
+                    } else {
+                        chosen_question -= questionsForThisLevel.length;
+                    }
                 }
             }
         }
