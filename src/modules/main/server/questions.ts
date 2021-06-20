@@ -216,7 +216,7 @@ let questions = [
             ),
             mistakeQuestions(
                 "Danses avec ton ami avant qu'elle ne parte.",
-                3, // Danse, amiE.
+                2, // Danse, amiE.
             ),
         ],
         "géographie": [
