@@ -468,6 +468,37 @@ let questions = [
                 "sent": "conjugaison du verbe « sentir » à la troisième personne du singulier, au présent de l’indicatif.",
             }),
         ],
+        "géographie": [
+            definitionQuestion({
+                "amont": "Partie d'un cours d'eau comprise entre un lieu déterminé et sa source.",
+                "aval" : "Partie d'un cours d'eau comprise entre un lieu déterminé et son embouchure.",
+                "confluent": "Point de rencontre de 2 cours d'eau.",
+                "rivière": "Cours d'eau qui rejoint un fleuve.",
+                "fleuve": "Cours d'eau débouchant dans une mer.",
+            }),
+            definitionQuestion({
+                "relief": "Ensemble des inégalités de la surface de la terre.",
+                "presqu'île": "Terre reliée au continent par une étroite bande de terre.",
+                "littoral": "Bande de terre plus ou moins large qui borde la mer ou l'océan.",
+                "plateau": "Relief plus ou moins plan, dans lequel les vallées sont encaissées.",
+                "plaine": "Etendue plus ou moins plane, dans lequel les vallées ne sont pas encaissées.",
+            }),
+            definitionQuestion({
+                "bidonville": "Quartier d'une ville construit avec des matériaux de récupération.",
+                "urbain": "De la ville.",
+                "rural": "Des campagnes.",
+                "métropole": "Très grande agglomération qui commande et qui dirige.",
+                "ghetto": "Quartier de ville dans lequel se rassemble une population partageant des caractères communs (langue, religion, pauvreté).",
+                "exode rural": "départ des habitants des campagnes vers les villes.",
+            }),
+            definitionQuestion({
+                "Espérance de vie": "nombre moyen d'années de vie d'une population.",
+                "PNB": "richesses produites par un pays en une année.",
+                "densité de population": "Nombre d'habitants qui vivent en moyenne sur 1 kilomètre carré.",
+                "accroissement naturel": "différence entre le nombre de naissances et de décès.",
+                "contraintes naturelles": "Ensemble des éléments naturels qui font obstacle à l'installation des hommes dans un lieu.",
+            }),
+        ],
         "histoire": [
             dateQuestion({
                 "vers −3500" : "l'apparition des premières écritures",
@@ -625,6 +656,21 @@ let questions = [
                 "bal": "Assemblée où l’on danse.",
                 "bâle": "Ville de Suisse.",
                 "balle": "Petite sphère qui rebondit, utilisée dans certains jeux.",
+            }),
+        ],
+        "géographie": [
+            definitionQuestion({
+                "Agriculture biologique": "système de culture qui n’utilise pas de pesticides ou d’engrais chimiques.",
+                "Agriculture durable": "Agriculture qui répond aux besoins des populations actuelles sans compromettre la capacité des populations futures à répondre aux leurs.",
+                "Agriculture productiviste": "Agriculture qui cherche une production maximale et des rendements élevés en utilisant les techniques les plus efficaces (machines, engrais, pesticides, OGM…).",
+                "Agriculture vivrière": "Agriculture destinée à nourrir les paysans qui la produisent.",
+            }),
+            definitionQuestion({
+                "Pays développé": "Pays riche où la majorité de la population a accès à tous ses besoins vitaux ainsi qu’à un certain confort.",
+                "Pays du nord": "ensemble des pays riches et développés, situés principalement dans l’hémisphère nord",
+                "Pays du sud": "ensemble des pays pauvres et en développement, situés au sud de l’Amérique du Nord et de l’Europe.",
+                "Pays émergent": "Pays connaissant une croissance économique forte mais dont le niveau de développement de la population est encore faible.",
+                "Pays enclavé" : "pays qui n’a pas accès à la mer.",
             }),
         ],
         "histoire": [
@@ -874,6 +920,21 @@ let questions = [
                 "bout": "Extrémité d’un corps, d’un espace.",
             }),
         ],
+        "géographie": [
+            definitionQuestion({
+                "Tourisme de masse": "type de tourisme que l’on trouve dans des espaces aménagés pour accueillir un grand nombre de voyageurs, à des prix abordables.",
+                "Tourisme international": "tourisme pratiqué en dehors du pays de résidence.",
+                "Tourisme vert": "tourisme centré sur la découverte et le respect de l’environnement",
+                "Tourisme durable": "tourisme  proposant des activités qui ménagent les équilibres économiques, sociaux  et environnementaux.",
+                "Tourisme équitable" : "forme de tourisme favorisant l’amélioration des conditions de vie des communautés locales.",
+            }),
+            definitionQuestion({
+                "Taux d’évolution de la population" : "mesure de l’accroissement global de la population",
+                "Taux de fécondité" : "nombre moyen d’enfants par femme.",
+                "Taux de pauvreté" : "part de la population vivant avec moins de 1,90 $ par jour selon l’ONU.",
+                "Taux d’urbanisation" : "part de la population d’un pays qui habite dans un espace urbain.",
+            }),
+        ],
         "histoire": [
             dateQuestion({
                 "entre 1751 et 1772": "l'édition de l'Encyclopédie",
@@ -1084,6 +1145,27 @@ let questions = [
                 "temps": "Moments où se passe un mouvement, une action.",
                 "tend": "conjugaison du verbe « tendre » à la troisième personne du singulier, au présent de l’indicatif.",
             }),
+        ],
+        "géographie": [
+            definitionQuestion({
+                "parlement européen": "institution élue au suffrage universel direct composé de 705 députés, détenteur du pouvoir législatif.",
+                "commission européenne": "institution composée d'un représentant par État membre dont la fonction principale est l'initiative législative",
+                "cour de justice de l'Union européenne": "institution qui veille à l'application du droit de l'Union.",
+                "banque centrale européenne": "institution dont l'objectif est de maintenir la stabilité des prix et de limiter l'inflation annuelle."
+            }),
+            () => {
+                return {
+                    statement: `Lequel de ces pays est membre de l'Union Européenne en 2021 ?`,
+                    correct: `La Slovaquie`,
+                    wrong: [`L'Andorre`,
+                            `La Suisse`,
+                            `Le Royaume Uni`],
+                    course: ["Les 27 États membres de l'Union Européenne en 2021 sont l'Allemagne, l'Autriche, la Belgique, la Bulgarie, Chypre, la Croatie, le Danemark, l'Espagne,",
+                             "l'Estonie, la Finlande, la France, la Grèce, la Hongrie, l'Irlande, l'Italie, la Lettonie, la Lituanie, le Luxembourg, Malte,",
+                             "les Pays-Bas, la Pologne, le Portugal, la République-Tchèque, la Roumanie, la Slovaquie, la Slovénie et la Suède.",
+                            ],
+                }
+            },
         ],
         "histoire": [
             dateQuestion({
