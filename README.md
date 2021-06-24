@@ -2,6 +2,8 @@
 
 ![Screenshot](/screenshot.jpg)
 
+Une sphinge a envahi le village et dévore ses habitants ! Le seul moyen de la vaincre est de résoudre ses énigmes... Pourrez-vous relever le défi ?
+
 ## Get started
 
 1. Follow the instructions in src/pipoya/README.md to download the assets from
